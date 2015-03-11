@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>jVM运行时内存 | JVM学习</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="../README" />
+    
+    
+    <link rel="prev" href="../class/README.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+    
+    <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-exercises/exercises.css">
+    
+
+
+        
+    <div class="book"  data-level="3" data-basepath=".." data-revision="1425891008951">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         class文件格式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         综述
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="class/README.html">
+            
+                
+                    <a href="../class/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         class加载过程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3" data-path="jvm/README.html">
+            
+                
+                    <a href="../jvm/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         jVM运行时内存
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="README">
+            
+                
+                    <a href="../README">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         总结
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >JVM学习</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_1211">
+                    
+                        <h1 id="jvm">jVM运行时内存</h1>
+<h4 id="oom">虚拟机规范中哪个区域没有规定任何OOM的情况？</h4>
+<p>程序计数器</p>
+<p>HotSpot方法区在永久代中，1.7中永久代的字符串常量池已经移除
+对于其他虚拟机（如BEA
+JRockit、IBM J9等）来说是不存在永久代的概念的。即使是HotSpot虚拟机本身，根据官方发布的路线图信息，现在也有放弃永久代并“搬家”至Native
+Memory来实现方法区的规划了。</p>
+<h4 id="nativ-memorydirect-memory">什么是Nativ Memory/Direct Memory受什么限制？</h4>
+<p>Native Memory受到操作系统virtual process size限制，例如Xms为1G，系统可用总共3G，则Native Memory可能使用接近2GB空间。
+调整-XX:MaxDirectMemorySize
+<a href="http://www.techpaste.com/2012/07/steps-debugdiagnose-memory-memory-leaks-jvm/" target="_blank">http://www.techpaste.com/2012/07/steps-debugdiagnose-memory-memory-leaks-jvm/</a></p>
+<h4 id="single-procss-maximum-possible-memory">Single Procss Maximum Possible Memory</h4>
+<p>系统和CPU级别:<a href="http://stackoverflow.com/questions/8799481/single-process-maximum-possible-memory-in-x64-linux" target="_blank">http://stackoverflow.com/questions/8799481/single-process-maximum-possible-memory-in-x64-linux</a>
+系统级别
+<a href="http://shortrecipes.blogspot.de/2009/04/limitsconf-virtual-memory-limit.html" target="_blank">http://shortrecipes.blogspot.de/2009/04/limitsconf-virtual-memory-limit.html</a></p>
+<p>XX:+DisableExplicitGC会导致Bits.reserveMemory无效</p>
+<ul>
+<li>Native Memory和heap访问哪个快
+<a href="http://mentablog.soliveirajr.com/2012/11/which-one-is-faster-java-heap-or-native-memory/" target="_blank">http://mentablog.soliveirajr.com/2012/11/which-one-is-faster-java-heap-or-native-memory/</a></li>
+</ul>
+<h4 id="">并行和并发概念区别解。</h4>
+<p>答：并行和并发这两个概念都是编程中的概念，在垃圾收集器的上下文语境中，我们应该这样理
+    （1）并行（Parallel）：指多条垃圾收集线程并行工作，但此此时用户线程仍然处于等待状态。
+    （2）并发（Concurrent）：指用户线程与垃圾收集线程同时执执行（但不一定是并行的，可能会交替执行），用户程序继续运行，而垃圾收集程序运行于另一个CPU上。</p>
+<h4 id="">栈帧和方法去运行时常量池的关联</h4>
+<h4 id="">栈帧是一个线程一个么？</h4>
+<p>Java 虚拟机是基于栈架构设计的,它的大多数操作是从当前栈帧的操作数栈取出 1 个或多个 操作数,或将结果压入操作数栈中。每调用一个方法,都会创建一个新的栈帧,并创建对应方法所 需的操作数栈和局部变量表(参见§2.6 “栈帧”)。每条线程在运行时的任意时刻,都会包􏰄若 干个由不同方法嵌套调用而产生的栈帧,当然也包括了若干个栈帧内部的操作数栈,但是只有当前 栈帧中的操作数栈才是活动的。</p>
+<h4 id="gc">GC的组合关系</h4>
+<p><a href="https://blogs.oracle.com/jonthecollector/entry/our_collectors" target="_blank">https://blogs.oracle.com/jonthecollector/entry/our_collectors</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../class/README.html" class="navigation navigation-prev " aria-label="Previous page: class加载过程"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../README" class="navigation navigation-next " aria-label="Next page: 总结"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-exercises/ace/ace.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-exercises/ace/theme-tomorrow.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-exercises/ace/mode-javascript.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-exercises/exercises.js"></script>
+    
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <script src="../gitbook/plugins/gitbook-plugin-exercises/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+    </body>
+    
+</html>

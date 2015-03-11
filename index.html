@@ -1,0 +1,520 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>综述 | JVM学习</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./class/README.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+    
+    <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-exercises/exercises.css">
+    
+
+
+        
+    <div class="book"  data-level="1" data-basepath="." data-revision="1425891008951">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter active" data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         class文件格式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="1" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         综述
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="class/README.html">
+            
+                
+                    <a href="./class/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         class加载过程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="jvm/README.html">
+            
+                
+                    <a href="./jvm/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         jVM运行时内存
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="README">
+            
+                
+                    <a href="./README">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         总结
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >JVM学习</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_1209">
+                    
+                        <h1 id="jvm">JVM学习</h1>
+<h2 id="jvm">JVM概述</h2>
+<p>官方白皮书说明java虚拟机的主要功能是只需要正确读取 Class 文件之中每一条字节码指令,并且能正确执行这些指令所蕴含的操作 即可。所以虚拟机规范中没有明确描述实现细节。</p>
+<h2 id="">运行时内存</h2>
+<h2 id="class">Class文件格式</h2>
+<h3 id="">常用指令</h3>
+<ul>
+<li>问题：虚拟机如何识别此字节码文件是java文件，并且判断当前虚拟机 可以支持执行此JDK版本编译的java字节码文件</li>
+</ul>
+<h3 id="">基本概念</h3>
+<p>u1,u2 和 u4,分别代 表了 1、2 和 4 个字节的无符号数</p>
+<h3 id="">虚拟机指令</h3>
+<h4 id="">类型</h4>
+<p>i 代表对 int 类型的数据操作,l 代表 long,s 代表 short,b 代表 byte, c 代表 char,f 代表 float,d 代表 double,a 代表 reference。也有一些指令的助记符中没 有明确的指明操作类型的字母</p>
+<h4 id="">操作</h4>
+<p>加载和存储指令用于将数据从栈帧(§2.6)的局部变量表(§2.6.1)和操作数栈之间来回 传输</p>
+<ul>
+<li>将一个局部变量加载到操作栈的指令包括有Xload</li>
+<li>将一个数值从操作数栈存储到局部变量表 Xstore</li>
+<li>将一个常量加载到操作数栈 Xpush Xconst</li>
+<li>扩充局部变量表 wide</li>
+</ul>
+<p>字节码格式</p>
+<pre><code>ClassFile {
+   u4 magic;
+   u2 minor_version;
+   u2 major_version;
+   u2 constant_pool_count;
+   cp_info constant_pool[constant_pool_count-1];
+   u2 access_flags;
+   u2 this_class;
+   u2 super_class;
+   u2 interfaces_count;
+   u2 interfaces[interfaces_count];
+   u2 fields_count;
+   field_info fields[fields_count];
+   u2 methods_count;
+   method_info methods[methods_count];
+   u2 attributes_count;
+   attribute_info attributes[attributes_count];
+}
+</code></pre><p>类</p>
+<pre><code>public class LoopClass {
+    public static void main(String[] args) {
+        int i;
+        for (i = 0; i &lt; 100; i++) {
+            ;
+        }
+    }
+}
+</code></pre><p>编译后的字节码为</p>
+<pre><code>Classfile /Users/zhangtan/github/zt-example/zt-example-util/src/main/java/LoopClass.class
+  Last modified 2015-3-3; size 310 bytes
+  MD5 checksum 7c7c7d28fd342023356b0aac31cfda0d
+  Compiled from &quot;LoopClass.java&quot;
+public class LoopClass
+  SourceFile: &quot;LoopClass.java&quot;
+  minor version: 0
+  major version: 50
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #3.#13         //  java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+   #2 = Class              #14            //  LoopClass
+   #3 = Class              #15            //  java/lang/Object
+   #4 = Utf8               &lt;init&gt;
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               main
+   #9 = Utf8               ([Ljava/lang/String;)V
+  #10 = Utf8               StackMapTable
+  #11 = Utf8               SourceFile
+  #12 = Utf8               LoopClass.java
+  #13 = NameAndType        #4:#5          //  &quot;&lt;init&gt;&quot;:()V
+  #14 = Utf8               LoopClass
+  #15 = Utf8               java/lang/Object
+{
+  public LoopClass();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iload_1
+         3: bipush        100
+         5: if_icmpge     14
+         8: iinc          1, 1
+        11: goto          2
+        14: return
+      LineNumberTable:
+        line 4: 0
+        line 7: 14
+      StackMapTable: number_of_entries = 2
+           frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+             frame_type = 11 /* same */
+
+  }
+</code></pre><p>上面是使用javap查看的，使用二进制查看文件开头会显示
+<img src="http://7vzu3j.com1.z0.glb.clouddn.com/magic.png" alt="">
+<a href="http://zh.wikipedia.org/wiki/Hexspeak" target="_blank">0xCAFEBABE</a>（“cafebabe”）在Mach-O格式文件中用于标识通用二进制目标文件，同时也在Java中用于识别Java字节码类文件。</p>
+<p>*
+minor_vesion、major_version
+分别表示 Class 文件 的副、主版本。一个 Java 虚拟机实例只能支持特定范围内的主版本号(Mi 至 Mj)和 0 至特定范围 内(0 至 m)的副版本号。
+此版本号jdk版本生成，例如上图的例子使用JDK1.6，出来的版本号为50。</p>
+<p>下面写个JDK1.8特性的例子</p>
+<pre><code>public class Test {
+    public static void main(String[] args) {
+        //这里有{}和return 以及 ;
+        Runnable r = () -&gt; { System.out.println(&quot;hello world&quot;); };
+
+        //这里不需要{}和return
+        java.util.Comparator&lt;String&gt; c = (String s1, String s2) -&gt; s2.length()-s1.length();
+        r.run();
+        System.out.println(c.compare(&quot;s1&quot;, &quot;12323&quot;));
+    }
+
+}
+</code></pre><p>查看变以后结果</p>
+<pre><code>➜  java git:(master) ✗ javap -verbose LoopClass
+Classfile /Users/zhangtan/github/zt-example/zt-example-util/src/main/java/LoopClass.class
+  Last modified 2015-3-3; size 310 bytes
+  MD5 checksum c9a2bea90f79a07ba64bd0cb0dbaf7db
+  Compiled from &quot;LoopClass.java&quot;
+public class LoopClass
+  SourceFile: &quot;LoopClass.java&quot;
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #3.#13         //  java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+   #2 = Class              #14            //  LoopClass
+   #3 = Class              #15            //  java/lang/Object
+   #4 = Utf8               &lt;init&gt;
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               main
+   #9 = Utf8               ([Ljava/lang/String;)V
+  #10 = Utf8               StackMapTable
+  #11 = Utf8               SourceFile
+  #12 = Utf8               LoopClass.java
+  #13 = NameAndType        #4:#5          //  &quot;&lt;init&gt;&quot;:()V
+  #14 = Utf8               LoopClass
+  #15 = Utf8               java/lang/Object
+{
+  public LoopClass();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: iconst_0
+         1: istore_1
+         2: iload_1
+         3: bipush        100
+         5: if_icmpge     14
+         8: iinc          1, 1
+        11: goto          2
+        14: return
+      LineNumberTable:
+        line 4: 0
+        line 7: 14
+      StackMapTable: number_of_entries = 2
+           frame_type = 252 /* append */
+          offset_delta = 2
+          locals = [ int ]
+             frame_type = 11 /* same */
+
+  }
+</code></pre><h4 id="magic">magic</h4>
+<p>JDK 版本为 1. k 时(k ≥2)时,对应的 Class 文件格式版本号的范围是 45.0 至 44+k.0
+major version是52，上面一个例子为50</p>
+<p>如果jvm不支持，则会报错 <img src="http://7vzu3j.com1.z0.glb.clouddn.com/minorVersionError.png" alt=""></p>
+<h4 id="fagsacc_public-acc_super">fags:ACC_PUBLIC, ACC_SUPER</h4>
+<p>ACC_PUBLIC 可以被包的类外访问
+ACC_SUPER 当用到 invokespecial 指令时,需要特殊处理3的 父类方法。
+￼</p>
+<h4 id="constant-pool">Constant pool</h4>
+<p>常量池,如例子所示，共有15个常量(从1开始计数)  0010 = 16-1个
+<img src="http://7vzu3j.com1.z0.glb.clouddn.com/constant_pool.png" alt="">￼￼
+OA￼</p>
+<h4 id="">执行步骤</h4>
+<pre><code>         0: iconst_0
+         1: istore_1
+         2: iload_1
+         3: bipush        100
+         5: if_icmpge     14
+         8: iinc          1, 1
+        11: goto          2
+        14: return
+</code></pre><p>istore_1  把1存储到局部变量表
+iload_1   把1加载到操作栈
+bipush    把100加载到操作数栈
+if_icmpge 判断局部变量1号位置的变量是否大于100如果跳到14处
+综上可以看出
+stack=2, locals=2, args_size=1
+stack为栈的深度
+locals为存储空间单位为Slot，一个Slot能存储32bit的数据类型、引用
+args_size为参数个数
+<em>LineNumberTable
+标记源文件中行号表示的内容在 Java 虚拟机的 code[]数组中对应的部分
+</em>tackMapTable
+属性包􏰄 0 至多个栈映射帧(Stack Map Frames),每个栈映射帧都显 式或隐式地指定了一个字节码偏移量,用于表示局部变量表和操作数栈的验证类型
+￼可以被包的类外访问。
+<em>invokespecial
+指令用于调用一些需要特殊处理的实例方法,包括实例初始化方法(§ 2.9)、私有方法和父类方法。
+</em>StackMapTable
+StackMapTable 属性包􏰄 0 至多个栈映射帧(Stack Map Frames),每个栈映射帧都显 式或隐式地指定了一个字节码偏移量,用于表示局部变量表和操作数栈的验证类型
+*SourceFile
+sourcefile_index 项引用字符串表示被编译的 Class 文件的源文件的名字。不包括 源文件所在目录的目录名,也不包括源文件的绝对路径名。平台相关(绝对路径名等)的 附加信息必须是运行时解释器(Runtime Interpreter)或开发工具在文件名实际使 用时提供。</p>
+<p>常量池tag
+<img src="http://7vzu3j.com1.z0.glb.clouddn.com/常量池tag.png" alt=""></p>
+<p>常量池表类型
+<img src="http://7vzu3j.com1.z0.glb.clouddn.com/常量池.png" alt=""></p>
+<h1 id="java">JAVA程序加载</h1>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: class文件格式"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./class/README.html" class="navigation navigation-next " aria-label="Next page: class加载过程"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-exercises/ace/ace.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-exercises/ace/theme-tomorrow.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-exercises/ace/mode-javascript.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-exercises/exercises.js"></script>
+    
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <script src="gitbook/plugins/gitbook-plugin-exercises/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+    </body>
+    
+</html>
