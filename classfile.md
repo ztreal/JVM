@@ -523,6 +523,10 @@ Constant pool:
 
 
 
+##使用HSDB查看class文件位置
+```
+sudo java -cp /Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/lib/sa-jdi.jar sun.jvm.hotspot.HSDB
+```
 
 
 
