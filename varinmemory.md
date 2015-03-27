@@ -210,6 +210,10 @@ t2: Oop for VarInJVM2 @ 0x00000000fa45b4d0 Oop for VarInJVM2 @ 0x00000000fa45b4d
 
 t3命令有bug找不到了，根据图片![](http://7vzu3j.com1.z0.glb.clouddn.com/t3Frame.png)可以看到 t3在栈帧里面
 
+常量池内容和字节码是对应的，参见下图
+![](http://7vzu3j.com1.z0.glb.clouddn.com/constants_HSDB.png)
+
+
 main线程的栈内存信息
 ![](http://7vzu3j.com1.z0.glb.clouddn.com/stackFrame.png)
 

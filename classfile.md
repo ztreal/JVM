@@ -228,7 +228,7 @@ ACC_SUPER 当用到 invokespecial 指令时,需要特殊处理3的 父类方法�
 ####Constant pool
 常量池,如例子所示，共有15个常量(从1开始计数)  0010 = 16-1个
 ![](http://7vzu3j.com1.z0.glb.clouddn.com/constant_pool.png)￼￼
-OA￼
+常量池内容可以在HSDB中查看![](http://7vzu3j.com1.z0.glb.clouddn.com/constants_HSDB.png)￼
 
 ####其他属性讲解
 stack=2, locals=2, args_size=1
