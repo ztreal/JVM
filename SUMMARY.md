@@ -2,6 +2,7 @@
 
 * [综述](README.md)
 * [1.1 JVM运行时内存](jvm/README.md)
+   * GC
    * [内存结构](jvm/nei_cun_jie_gou.md)
    * [提问](jvm/ti_wen.md)
        * GC
