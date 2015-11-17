@@ -2,6 +2,12 @@
 #### 虚拟机规范中哪个区域没有规定任何OOM的情况？
 程序计数器
 
+运行时内存区域划分
+
+
+
+
+
 
 #### JVM都有永久代么？
 HotSpot方法区在永久代中，1.7中永久代的字符串常量池已经移除
@@ -15,12 +21,10 @@ Native Memory受到操作系统virtual process size限制，例如Xms为1G，系
 http://www.techpaste.com/2012/07/steps-debugdiagnose-memory-memory-leaks-jvm/
 
 
-
-
-
 #### Native Memory和heap访问哪个快？
 http://mentablog.soliveirajr.com/2012/11/which-one-is-faster-java-heap-or-native-memory/
-
+#####拓展问题
+nginx怎么处理内存操作的，效率会那么高
 
 #### Single Procss Maximum Possible Memory是多少？
 系统和CPU级别:http://stackoverflow.com/questions/8799481/single-process-maximum-possible-memory-in-x64-linux
