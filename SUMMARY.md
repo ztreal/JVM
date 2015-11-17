@@ -7,7 +7,7 @@
    * [提问](jvm/ti_wen.md)
 * [JVM参数配置](jvm_param.md)
 * [class文件格式](classfile.md)
-   * 基本字节码介绍
+   * [基本字节码介绍](ji_ben_zi_jie_ma_jie_shao.md)
 * [变量在运行时内存的位置](varinmemory.md)
 * [class加载过程](class/README.md)
 * [JMM](jmm/README.md)
