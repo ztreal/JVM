@@ -7,7 +7,7 @@
    * [提问](jvm/ti_wen.md)
 * [JVM参数配置](jvm_param.md)
 * [class文件格式](classfile.md)
-   * 常见疑问
+   * [常见疑问](chang_jian_yi_wen.md)
    * [基本字节码介绍](ji_ben_zi_jie_ma_jie_shao.md)
    * [语法糖介绍](yu_fa_tang_jie_shao.md)
    * [字节码操作](zi_jie_ma_cao_zuo.md)
