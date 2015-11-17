@@ -15,7 +15,7 @@ Native Memory受到操作系统virtual process size限制，例如Xms为1G，系
 http://www.techpaste.com/2012/07/steps-debugdiagnose-memory-memory-leaks-jvm/
 
 
-#### 为什么使用Native Memory？有哪些使用例子？
+
 
 
 #### Native Memory和heap访问哪个快？
@@ -45,7 +45,7 @@ XX:+DisableExplicitGC会导致Bits.reserveMemory无效，造成Native Memory OOM
 栈帧之间直接可以有重叠，前后两个栈帧之间可以共享一部分区域用来传递参数
 
 #### 栈帧是一个线程一个么？
-Java 虚拟机是基于栈架构设计的,它的大多数操作是从当前栈帧的操作数栈取出 1 个或多个 操作数,或将结果压入操作数栈中。每调用一个方法,都会创建一个新的栈帧,并创建对应方法所 需的操作数栈和局部变量表(参见§2.6 “栈帧”)。每条线程在运行时的任意时刻,都会包􏰄若 干个由不同方法嵌套调用而产生的栈帧,当然也包括了若干个栈帧内部的操作数栈,但是只有当前 栈帧中的操作数栈才是活动的。
+Java 虚拟机是基于栈架构设计的,它的大多数操作是从当前栈帧的操作数栈取出 1 个或多个 操作数,或将结果压入操作数栈中。每调用一个方法,都会创建一个新的栈帧,并创建对应方法所 需的操作数栈和局部变量表(参见§2.6 “栈帧”)。每条线程在运行时的任意时刻,都会包󿰄若 干个由不同方法嵌套调用而产生的栈帧,当然也包括了若干个栈帧内部的操作数栈,但是只有当前 栈帧中的操作数栈才是活动的。
 
 #### GC的组合关系
 https://blogs.oracle.com/jonthecollector/entry/our\_collectors
