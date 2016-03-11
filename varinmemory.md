@@ -51,7 +51,7 @@ class VarInJVM2 {
 ```
 运行命令
 ```
-➜  java   -XX:+UseSerialGC
+➜  jdb   -XX:+UseSerialGC
 正在初始化jdb...
 > stop in VarInJVM.fn
 正在延迟断点VarInJVM.fn。

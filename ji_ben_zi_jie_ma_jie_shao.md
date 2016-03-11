@@ -207,7 +207,7 @@ Constant pool:
 
   }
 ```
-####magic
+####Magic
 
 JDK 版本为 1. k 时(k ≥2)时,对应的 Class 文件格式版本号的范围是 45.0 至 44+k.0
 major version是52，上面一个例子为50
@@ -215,7 +215,7 @@ major version是52，上面一个例子为50
 如果jvm不支持，则会报错 ![](http://7vzu3j.com1.z0.glb.clouddn.com/minorVersionError.png)
 
 
-####fags:ACC_PUBLIC, ACC_SUPER
+####Fags:ACC_PUBLIC, ACC_SUPER
 ACC_PUBLIC 可以被包的类外访问
 ACC_SUPER 当用到 invokespecial 指令时,需要特殊处理3的 父类方法。
 ￼
